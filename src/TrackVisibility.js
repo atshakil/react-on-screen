@@ -129,10 +129,16 @@ export default class TrackVisibility extends PureComponent {
   }
 
   isVisible = (
-    { top, left, bottom, right, width, height },
+    { top: _top, left: _left, bottom: _bottom, right: _right, width: _width, height: _height },
     windowWidth,
     windowHeight
   ) => {
+    const top = Math.floor(_top),
+          left = Math.floor(_left),
+          bottom = Math.floor(_bottom),
+          right = Math.floor(_right),
+          width = Math.floor(_width),
+          height = Math.floor(_height);
     const { offset, partialVisibility } = this.props;
 
     if (top + right + bottom + left === 0) {
